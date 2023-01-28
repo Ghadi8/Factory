@@ -1,0 +1,1491 @@
+{
+  "contractName": "IFactory",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_newClone",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_contractNumber",
+          "type": "uint256"
+        }
+      ],
+      "name": "NewContractClone",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "baseImplemenation",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "string",
+          "name": "_name",
+          "type": "string"
+        }
+      ],
+      "name": "NewImplementation",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_baseId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_data",
+          "type": "bytes"
+        }
+      ],
+      "name": "createClone",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_baseId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getClonedContracts",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_implAddr",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "_name",
+          "type": "string"
+        }
+      ],
+      "name": "addBaseContract",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_baseId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getBaseContract",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_newClone\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"_contractNumber\",\"type\":\"uint256\"}],\"name\":\"NewContractClone\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"baseImplemenation\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"}],\"name\":\"NewImplementation\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_implAddr\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"}],\"name\":\"addBaseContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_baseId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"createClone\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_baseId\",\"type\":\"uint256\"}],\"name\":\"getBaseContract\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_baseId\",\"type\":\"uint256\"}],\"name\":\"getClonedContracts\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"addBaseContract(address,string)\":{\"params\":{\"_implAddr\":\"address of Base contract\",\"_name\":\"name of Base contract\"}},\"createClone(uint256,bytes)\":{\"params\":{\"_baseId\":\"id of the desired implementation to clone*\",\"_data\":\"encoded data as param for initializing the proxy\"}},\"getClonedContracts(address,uint256)\":{\"params\":{\"_baseId\":\"id of an implementation*\",\"_owner\":\"owner address\"}}},\"version\":1},\"userdoc\":{\"events\":{\"NewContractClone(address,address,uint256)\":{\"notice\":\"Emitted when a contract gets cloned\"},\"NewImplementation(address,string)\":{\"notice\":\"Emitted when a new implementation is added\"}},\"kind\":\"user\",\"methods\":{\"addBaseContract(address,string)\":{\"notice\":\"Add Base Contracts as new implementations to be cloned\"},\"createClone(uint256,bytes)\":{\"notice\":\"initializing the cloned contract\"},\"getClonedContracts(address,uint256)\":{\"notice\":\"function returns cloned contracts by owner address\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IFactory.sol\":\"IFactory\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IFactory.sol\":{\"keccak256\":\"0x2cbab023f473a1135ac070cdfa6d0eb4af2fb80eb62680254a494e2ae9d75e68\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://1247bfcaa540c59cb49ebb83f506f308172ed32d72cebb007708918a48a0831e\",\"dweb:/ipfs/QmV8DXT55s5PyUV5ZpSgMtXBJLX6x8E176NKPpSiMmP83Z\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ninterface IFactory {\r\n    /// @notice Emitted when a contract gets cloned\r\n    event NewContractClone(\r\n        address indexed _newClone,\r\n        address indexed _owner,\r\n        uint256 indexed _contractNumber\r\n    );\r\n\r\n    /// @notice Emitted when a new implementation is added\r\n    event NewImplementation(\r\n        address indexed baseImplemenation,\r\n        string indexed _name\r\n    );\r\n\r\n    /**\r\n     * @notice initializing the cloned contract\r\n     * @param _data encoded data as param for initializing the proxy\r\n     * @param _baseId id of the desired implementation to clone\r\n     **/\r\n    function createClone(uint256 _baseId, bytes memory _data) external;\r\n\r\n    /**\r\n     * @notice function returns cloned contracts by owner address\r\n     * @param _owner owner address\r\n     * @param _baseId id of an implementation\r\n     **/\r\n    function getClonedContracts(address _owner, uint256 _baseId)\r\n        external\r\n        view\r\n        returns (address[] memory);\r\n\r\n    /**\r\n     * @notice Add Base Contracts as new implementations to be cloned\r\n     * @param _implAddr address of Base contract\r\n     * @param _name name of Base contract\r\n     */\r\n    function addBaseContract(address _implAddr, string memory _name) external;\r\n\r\n    function getBaseContract(uint256 _baseId)\r\n        external\r\n        view\r\n        returns (address, string memory);\r\n}\r\n",
+  "sourcePath": "C:\\Users\\Ghadi\\Desktop\\Portfolio\\Solidity\\Factory\\contracts\\IFactory.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/IFactory.sol",
+    "exportedSymbols": {
+      "IFactory": [
+        618
+      ]
+    },
+    "id": 619,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 565,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:6"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IFactory",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 618,
+        "linearizedBaseContracts": [
+          618
+        ],
+        "name": "IFactory",
+        "nameLocation": "70:8:6",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 566,
+              "nodeType": "StructuredDocumentation",
+              "src": "86:47:6",
+              "text": "@notice Emitted when a contract gets cloned"
+            },
+            "eventSelector": "ea53cbed2284e1f5ff27673824e8a115e55c5e7233ec676439e7c002972e18e4",
+            "id": 574,
+            "name": "NewContractClone",
+            "nameLocation": "145:16:6",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 573,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 568,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_newClone",
+                  "nameLocation": "188:9:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 574,
+                  "src": "172:25:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 567,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "172:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 570,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_owner",
+                  "nameLocation": "224:6:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 574,
+                  "src": "208:22:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 569,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "208:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 572,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_contractNumber",
+                  "nameLocation": "257:15:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 574,
+                  "src": "241:31:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 571,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "241:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "161:118:6"
+            },
+            "src": "139:141:6"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 575,
+              "nodeType": "StructuredDocumentation",
+              "src": "288:54:6",
+              "text": "@notice Emitted when a new implementation is added"
+            },
+            "eventSelector": "43eba68a00f46589fe939991d45db24f175377e05021a90b533a39fa84f7fd5b",
+            "id": 581,
+            "name": "NewImplementation",
+            "nameLocation": "354:17:6",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 580,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 577,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "baseImplemenation",
+                  "nameLocation": "398:17:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 581,
+                  "src": "382:33:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 576,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "382:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 579,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_name",
+                  "nameLocation": "441:5:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 581,
+                  "src": "426:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 578,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "426:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "371:82:6"
+            },
+            "src": "348:106:6"
+          },
+          {
+            "documentation": {
+              "id": 582,
+              "nodeType": "StructuredDocumentation",
+              "src": "462:197:6",
+              "text": " @notice initializing the cloned contract\n @param _data encoded data as param for initializing the proxy\n @param _baseId id of the desired implementation to clone*"
+            },
+            "functionSelector": "31737ace",
+            "id": 589,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createClone",
+            "nameLocation": "674:11:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 587,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 584,
+                  "mutability": "mutable",
+                  "name": "_baseId",
+                  "nameLocation": "694:7:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 589,
+                  "src": "686:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 583,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "686:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 586,
+                  "mutability": "mutable",
+                  "name": "_data",
+                  "nameLocation": "716:5:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 589,
+                  "src": "703:18:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 585,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "703:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "685:37:6"
+            },
+            "returnParameters": {
+              "id": 588,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "731:0:6"
+            },
+            "scope": 618,
+            "src": "665:67:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 590,
+              "nodeType": "StructuredDocumentation",
+              "src": "740:163:6",
+              "text": " @notice function returns cloned contracts by owner address\n @param _owner owner address\n @param _baseId id of an implementation*"
+            },
+            "functionSelector": "fbdc8eb1",
+            "id": 600,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getClonedContracts",
+            "nameLocation": "918:18:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 595,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 592,
+                  "mutability": "mutable",
+                  "name": "_owner",
+                  "nameLocation": "945:6:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 600,
+                  "src": "937:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 591,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "937:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 594,
+                  "mutability": "mutable",
+                  "name": "_baseId",
+                  "nameLocation": "961:7:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 600,
+                  "src": "953:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 593,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "953:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "936:33:6"
+            },
+            "returnParameters": {
+              "id": 599,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 598,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 600,
+                  "src": "1020:16:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 596,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1020:7:6",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 597,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1020:9:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1019:18:6"
+            },
+            "scope": 618,
+            "src": "909:129:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 601,
+              "nodeType": "StructuredDocumentation",
+              "src": "1046:176:6",
+              "text": " @notice Add Base Contracts as new implementations to be cloned\n @param _implAddr address of Base contract\n @param _name name of Base contract"
+            },
+            "functionSelector": "e2683cf7",
+            "id": 608,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addBaseContract",
+            "nameLocation": "1237:15:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 606,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 603,
+                  "mutability": "mutable",
+                  "name": "_implAddr",
+                  "nameLocation": "1261:9:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 608,
+                  "src": "1253:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 602,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1253:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 605,
+                  "mutability": "mutable",
+                  "name": "_name",
+                  "nameLocation": "1286:5:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 608,
+                  "src": "1272:19:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 604,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1272:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1252:40:6"
+            },
+            "returnParameters": {
+              "id": 607,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1301:0:6"
+            },
+            "scope": 618,
+            "src": "1228:74:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "c40d24b1",
+            "id": 617,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getBaseContract",
+            "nameLocation": "1319:15:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 611,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 610,
+                  "mutability": "mutable",
+                  "name": "_baseId",
+                  "nameLocation": "1343:7:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 617,
+                  "src": "1335:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 609,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1335:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1334:17:6"
+            },
+            "returnParameters": {
+              "id": 616,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 613,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 617,
+                  "src": "1402:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 612,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1402:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 615,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 617,
+                  "src": "1411:13:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 614,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1411:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1401:24:6"
+            },
+            "scope": 618,
+            "src": "1310:116:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 619,
+        "src": "60:1369:6",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:1398:6"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/IFactory.sol",
+    "exportedSymbols": {
+      "IFactory": [
+        618
+      ]
+    },
+    "id": 619,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 565,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:6"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IFactory",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 618,
+        "linearizedBaseContracts": [
+          618
+        ],
+        "name": "IFactory",
+        "nameLocation": "70:8:6",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 566,
+              "nodeType": "StructuredDocumentation",
+              "src": "86:47:6",
+              "text": "@notice Emitted when a contract gets cloned"
+            },
+            "eventSelector": "ea53cbed2284e1f5ff27673824e8a115e55c5e7233ec676439e7c002972e18e4",
+            "id": 574,
+            "name": "NewContractClone",
+            "nameLocation": "145:16:6",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 573,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 568,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_newClone",
+                  "nameLocation": "188:9:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 574,
+                  "src": "172:25:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 567,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "172:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 570,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_owner",
+                  "nameLocation": "224:6:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 574,
+                  "src": "208:22:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 569,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "208:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 572,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_contractNumber",
+                  "nameLocation": "257:15:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 574,
+                  "src": "241:31:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 571,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "241:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "161:118:6"
+            },
+            "src": "139:141:6"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 575,
+              "nodeType": "StructuredDocumentation",
+              "src": "288:54:6",
+              "text": "@notice Emitted when a new implementation is added"
+            },
+            "eventSelector": "43eba68a00f46589fe939991d45db24f175377e05021a90b533a39fa84f7fd5b",
+            "id": 581,
+            "name": "NewImplementation",
+            "nameLocation": "354:17:6",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 580,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 577,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "baseImplemenation",
+                  "nameLocation": "398:17:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 581,
+                  "src": "382:33:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 576,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "382:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 579,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_name",
+                  "nameLocation": "441:5:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 581,
+                  "src": "426:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 578,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "426:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "371:82:6"
+            },
+            "src": "348:106:6"
+          },
+          {
+            "documentation": {
+              "id": 582,
+              "nodeType": "StructuredDocumentation",
+              "src": "462:197:6",
+              "text": " @notice initializing the cloned contract\n @param _data encoded data as param for initializing the proxy\n @param _baseId id of the desired implementation to clone*"
+            },
+            "functionSelector": "31737ace",
+            "id": 589,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createClone",
+            "nameLocation": "674:11:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 587,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 584,
+                  "mutability": "mutable",
+                  "name": "_baseId",
+                  "nameLocation": "694:7:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 589,
+                  "src": "686:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 583,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "686:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 586,
+                  "mutability": "mutable",
+                  "name": "_data",
+                  "nameLocation": "716:5:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 589,
+                  "src": "703:18:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 585,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "703:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "685:37:6"
+            },
+            "returnParameters": {
+              "id": 588,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "731:0:6"
+            },
+            "scope": 618,
+            "src": "665:67:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 590,
+              "nodeType": "StructuredDocumentation",
+              "src": "740:163:6",
+              "text": " @notice function returns cloned contracts by owner address\n @param _owner owner address\n @param _baseId id of an implementation*"
+            },
+            "functionSelector": "fbdc8eb1",
+            "id": 600,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getClonedContracts",
+            "nameLocation": "918:18:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 595,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 592,
+                  "mutability": "mutable",
+                  "name": "_owner",
+                  "nameLocation": "945:6:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 600,
+                  "src": "937:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 591,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "937:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 594,
+                  "mutability": "mutable",
+                  "name": "_baseId",
+                  "nameLocation": "961:7:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 600,
+                  "src": "953:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 593,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "953:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "936:33:6"
+            },
+            "returnParameters": {
+              "id": 599,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 598,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 600,
+                  "src": "1020:16:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 596,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1020:7:6",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 597,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1020:9:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1019:18:6"
+            },
+            "scope": 618,
+            "src": "909:129:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 601,
+              "nodeType": "StructuredDocumentation",
+              "src": "1046:176:6",
+              "text": " @notice Add Base Contracts as new implementations to be cloned\n @param _implAddr address of Base contract\n @param _name name of Base contract"
+            },
+            "functionSelector": "e2683cf7",
+            "id": 608,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addBaseContract",
+            "nameLocation": "1237:15:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 606,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 603,
+                  "mutability": "mutable",
+                  "name": "_implAddr",
+                  "nameLocation": "1261:9:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 608,
+                  "src": "1253:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 602,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1253:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 605,
+                  "mutability": "mutable",
+                  "name": "_name",
+                  "nameLocation": "1286:5:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 608,
+                  "src": "1272:19:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 604,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1272:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1252:40:6"
+            },
+            "returnParameters": {
+              "id": 607,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1301:0:6"
+            },
+            "scope": 618,
+            "src": "1228:74:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "c40d24b1",
+            "id": 617,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getBaseContract",
+            "nameLocation": "1319:15:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 611,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 610,
+                  "mutability": "mutable",
+                  "name": "_baseId",
+                  "nameLocation": "1343:7:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 617,
+                  "src": "1335:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 609,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1335:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1334:17:6"
+            },
+            "returnParameters": {
+              "id": 616,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 613,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 617,
+                  "src": "1402:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 612,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1402:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 615,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 617,
+                  "src": "1411:13:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 614,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1411:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1401:24:6"
+            },
+            "scope": 618,
+            "src": "1310:116:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 619,
+        "src": "60:1369:6",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:1398:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.4",
+  "updatedAt": "2023-01-28T16:18:17.981Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "addBaseContract(address,string)": {
+        "params": {
+          "_implAddr": "address of Base contract",
+          "_name": "name of Base contract"
+        }
+      },
+      "createClone(uint256,bytes)": {
+        "params": {
+          "_baseId": "id of the desired implementation to clone*",
+          "_data": "encoded data as param for initializing the proxy"
+        }
+      },
+      "getClonedContracts(address,uint256)": {
+        "params": {
+          "_baseId": "id of an implementation*",
+          "_owner": "owner address"
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "events": {
+      "NewContractClone(address,address,uint256)": {
+        "notice": "Emitted when a contract gets cloned"
+      },
+      "NewImplementation(address,string)": {
+        "notice": "Emitted when a new implementation is added"
+      }
+    },
+    "kind": "user",
+    "methods": {
+      "addBaseContract(address,string)": {
+        "notice": "Add Base Contracts as new implementations to be cloned"
+      },
+      "createClone(uint256,bytes)": {
+        "notice": "initializing the cloned contract"
+      },
+      "getClonedContracts(address,uint256)": {
+        "notice": "function returns cloned contracts by owner address"
+      }
+    },
+    "version": 1
+  }
+}
